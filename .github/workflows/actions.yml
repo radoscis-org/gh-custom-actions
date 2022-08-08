@@ -19,7 +19,7 @@ jobs:
         uses: ./.github/actions/issue
         id: issue
         with:
-          token: ${{ github.GITHUB_TOKEN }}
+          token: "${{ github.GITHUB_TOKEN }}"
           title: "Title of issue"
           body: "Body of an issue"
           assignees: "radoscis,piotrjanis"
