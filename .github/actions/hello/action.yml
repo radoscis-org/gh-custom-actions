@@ -1,0 +1,14 @@
+name: Hello Javascript World
+author: Radoslaw Cisz
+description: Simple JS action
+inputs:
+  who-to-greet:
+    description: 'Whho to greet'
+    required: true
+    default: World
+outputs:
+  time:
+    description: 'The greeting time'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
