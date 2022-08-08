@@ -1,0 +1,22 @@
+name: Hello Docker World
+author: Radoslaw Cisz
+description: Simple Docker action
+inputs:
+  who-to-greet:
+    description: 'Whho to greet'
+    required: true
+    default: World
+outputs:
+  time:
+    description: 'The greeting time'
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.who-to-greet }}
+  # env:
+  #   key: val
+  # entrypoint:
+  # args:
+  # image form dockerhub
+  # image: "docker://dockerhubname:repozsitory:"

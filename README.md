@@ -18,3 +18,6 @@ npx ncc build .github/actions/hello/index.js -o .github/actions/hello/dist
 
 ## Core package description
 https://github.com/actions/toolkit/tree/master/packages/core
+
+# Workflow commands for GithubActions
+https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions

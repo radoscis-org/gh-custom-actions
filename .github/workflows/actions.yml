@@ -13,3 +13,11 @@ jobs:
         if: failure()
         run: |
           echo "Time of greeting: ${{ steps.hello.outputs.time }}"
+      - uses: ./.github/actions/hello-docker
+        id: helloDocker
+        with:
+          who-to-greet: "Johny"
+      - name: Display Time of greeting form docker
+        if: failure()
+        run: |
+          echo "Time of greeting: ${{ steps.helloDocker.outputs.time }}"
