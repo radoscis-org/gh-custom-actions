@@ -23,6 +23,10 @@ async function createIssue() {
     )
 
     //core.setOutput('issue', JSON.stringify(response.data))
+
+    core.startGroup('Logging Issue Response OBJECT')
+    console.log(response.data)
+    core.endGroup()
     core.setOutput('issue', JSON.stringify(response.data))
   } catch (error) {
       core.setFailed(error.message)
