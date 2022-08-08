@@ -9,5 +9,7 @@ jobs:
         id: hello
         with:
           who-to-greet: "Johny"
-      - run: |
+      - name: Display Time of greeting
+        if: failure()
+        run: |
           echo "Time of greeting: ${{ steps.hello.outputs.time }}"
