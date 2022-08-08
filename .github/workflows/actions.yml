@@ -15,3 +15,15 @@ jobs:
           echo "Time of greeting: ${{ steps.hello.outputs.time }}"
           # Variable set with core package in previous step
           echo "HELLO=${HELLO}"
+      - name: Create Issue
+        uses: ././github/actions/iossue
+        id: issue
+        with:
+          token: ${{ github.GITHUB_TOKEN }}
+          title: "Title of issue"
+          body: "Body of an issue"
+          assignees: "radoscis,piotrjanis"
+      - name: Get output
+        run: |
+          echo "Issue: "
+          echo ${{ steps.issue.outputs.issue }}
