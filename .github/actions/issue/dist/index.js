@@ -4755,7 +4755,7 @@ try {
   const body = core.getInput('body')
   const assignees = core.getInput('assignees')
 
-  const octokit = github.getOctokit()
+  const octokit = github.getOctokit(token)
   //const octokit = new github.GitHub(token)
   const response = octokit.issues.create(
     {
