@@ -18,7 +18,8 @@ jobs:
         id: helloDocker
         with:
           who-to-greet: "Johny"
-      - name: Display Time of greeting form docker
+      - name: Display Time of greeting form docker and env var
         if: always()
         run: |
           echo "Time of greeting: ${{ steps.helloDocker.outputs.time }}"
+          echo "Hello Value: ${{ env.HELLO }}"
