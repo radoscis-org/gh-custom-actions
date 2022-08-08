@@ -4769,7 +4769,8 @@ try {
     }
   )
 
-  core.setOutput('issue', JSON.stringify(response.data))
+  //core.setOutput('issue', JSON.stringify(response.data))
+  core.setOutput('issue', JSON.stringify(response.body))
 } catch (error) {
     core.setFailed(error.message)
 }
