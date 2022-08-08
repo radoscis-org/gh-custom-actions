@@ -10,7 +10,7 @@ jobs:
         with:
           who-to-greet: "Johny"
       - name: Display Time of greeting
-        if: failure()
+        if: always()
         run: |
           echo "Time of greeting: ${{ steps.hello.outputs.time }}"
           # Variable set with core package in previous step

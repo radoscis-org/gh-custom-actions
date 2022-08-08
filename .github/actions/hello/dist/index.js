@@ -943,8 +943,6 @@ try {
     console.log(JSON.stringify(github, null,'\t'))
     core.endGroup()
 
-    throw(new Error("Some Error Message"))
-
     core.exportVariable('HELLO','hello man!')
 
 } catch (error) {
