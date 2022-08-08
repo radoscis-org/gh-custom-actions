@@ -4757,7 +4757,8 @@ try {
 
   const octokit = github.getOctokit(token)
   //const octokit = new github.GitHub(token)
-  const response = octokit.issues.create(
+
+  const response = octokit.rest.issues.create(
     {
       owner: github.context.repo.owner ,
       repo: github.context.repo.repo,
