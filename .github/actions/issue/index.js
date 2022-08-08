@@ -23,7 +23,7 @@ async function createIssue() {
     )
 
     //core.setOutput('issue', JSON.stringify(response.data))
-    core.setOutput('issue', JSON.stringify(response.JSON))
+    core.setOutput('issue', JSON.stringify(response.data))
   } catch (error) {
       core.setFailed(error.message)
   }
