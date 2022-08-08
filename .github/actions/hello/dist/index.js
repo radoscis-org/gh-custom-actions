@@ -924,15 +924,28 @@ const github = __webpack_require__(469);
 
 
 try {
+
+    // will appear if debugging is enabled (secret ACTIONS_STEP_DEBUG=true)
+    core.debug('Debug message')
+    core.warning('Warining message')
+    core.error('Error message')
+
     const name = core.getInput('who-to-greet');
+    core.setSecret('MAskedStringInLogs')
     console.log('Hello ', name);
+
+
 
     const time = new Date();
     core.setOutput("time", time.toTimeString());
 
+    core.startGroup('Logging GITHUB OBJECT')
     console.log(JSON.stringify(github, null,'\t'))
+    core.endGroup()
 
     throw(new Error("Some Error Message"))
+
+    core.exportVariable('HELLO','hello man!')
 
 } catch (error) {
     core.setFailed(error.message)

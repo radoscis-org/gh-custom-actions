@@ -13,3 +13,5 @@ jobs:
         if: failure()
         run: |
           echo "Time of greeting: ${{ steps.hello.outputs.time }}"
+          # Variable set with core package in previous step
+          echo "HELLO=${HELLO}"
