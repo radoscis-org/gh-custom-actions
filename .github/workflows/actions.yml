@@ -16,7 +16,7 @@ jobs:
           # Variable set with core package in previous step
           echo "HELLO=${HELLO}"
       - name: Create Issue
-        uses: ././github/actions/iossue
+        uses: ././github/actions/issue
         id: issue
         with:
           token: ${{ github.GITHUB_TOKEN }}
