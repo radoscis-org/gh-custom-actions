@@ -22,7 +22,7 @@ jobs:
           token: ${{ github.token }}
           title: "Title of issue"
           body: "Body of an issue"
-          assignees: "radoscis,piotrjanis"
+          assignees: "radoscis"
       - name: Get output
         run: |
           echo "Issue: "
