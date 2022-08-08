@@ -15,3 +15,6 @@ eg. with "ncc"
 npm i --save-dev @zeit/ncc
 
 npx ncc build .github/actions/hello/index.js -o .github/actions/hello/dist
+
+## Core package description
+https://github.com/actions/toolkit/tree/master/packages/core
