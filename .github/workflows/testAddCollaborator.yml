@@ -4,6 +4,7 @@ jobs:
   testing-action:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Add collaborator
         uses: ./.github/actions/add-collaborator
         if: always()
