@@ -18,7 +18,6 @@ runs:
   using: docker
   image: "Dockerfile"
   args:
-    - -o ${{ inputs.owner }}
     - -r ${{ inputs.repo }}
     - -c ${{ inputs.collaborator }}
     - -t ${{ inputs.token }}
