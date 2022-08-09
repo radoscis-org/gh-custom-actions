@@ -22,12 +22,15 @@ class GithubTokenAuth(AuthBase):
     def __call__(self,req):
         req.headers['Authorization'] = 'token ' + self.token
         return req
+class StripArgument(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, values.strip())
 
 def parseArguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--repo", help = "Repository name to add collaborator into in format owner/repo", default="radoscis/gh-custom-actions")
-    parser.add_argument("-c", "--collaborator", help ="Collaborator username", default="piotrjanis")
-    parser.add_argument("-t", "--token", help ="Authentication token", required=True)
+    parser.add_argument("-r", "--repo", help = "Repository name to add collaborator into in format owner/repo", default="radoscis/gh-custom-actions", action=StripArgument)
+    parser.add_argument("-c", "--collaborator", help ="Collaborator username", default="piotrjanis", action=StripArgument)
+    parser.add_argument("-t", "--token", help ="Authentication token", required=True, action=StripArgument)
     args = parser.parse_args()
     return args
 
@@ -36,7 +39,6 @@ def start():
     makeRequest(args.repo,args.collaborator,args.token)
 
 def makeRequest(repo,collaborator, token):
-    print(f"##{repo}##")
     request_url = f"{api_base_url}/{repo}/collaborators/{collaborator}"
     try:
         response = requests.put(
