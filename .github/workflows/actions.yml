@@ -23,3 +23,11 @@ jobs:
         run: |
           echo "Time of greeting: ${{ steps.helloDocker.outputs.time }}"
           echo "Hello Value: ${{ env.HELLO }}"
+      - name: Add collaborator
+        uses: ./.github/actions/add-collaborator
+        if: always()
+        id: addCollaborator
+        with:
+          repo: ${{ env.GITHUB_REPOSITORY }}
+          collaborator: piotrjanis
+          token: ${{ secrets.GH_TOKEN }}

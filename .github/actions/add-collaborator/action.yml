@@ -1,0 +1,30 @@
+name: Add Repo Collaborator
+author: Radoslaw Cisz
+description: Adds collaborator to repository
+inputs:
+  repo:
+    description: 'Repository name in format owner/repo'
+    required: false
+  collaborator:
+    description: 'Collaborator username'
+    required: false
+  token:
+    description: 'Authentication token'
+    required: true
+outputs:
+  responseBody:
+    description: 'Response from GH API'
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    - -o ${{ inputs.owner }}
+    - -r ${{ inputs.repo }}
+    - -c ${{ inputs.collaborator }}
+    - -t ${{ inputs.token }}
+  # env:
+  #   key: val
+  # entrypoint:
+  # args:
+  # image form dockerhub
+  # image: "docker://dockerhubname:repozsitory:"
