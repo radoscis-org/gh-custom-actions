@@ -10,6 +10,6 @@ jobs:
         if: always()
         id: addCollaborator
         with:
-          repo: ${{ env.GITHUB_REPOSITORY }}
+          repo: ${{ github.GITHUB_REPOSITORY }}
           collaborator: piotrjanis
           token: ${{ secrets.GH_TOKEN }}
