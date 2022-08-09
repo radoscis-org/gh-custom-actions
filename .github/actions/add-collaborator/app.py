@@ -33,7 +33,7 @@ def parseArguments():
 
 def start():
     args = parseArguments()
-    makeRequest(args.owner,args.repo,args.collaborator,args.token)
+    makeRequest(args.repo,args.collaborator,args.token)
 
 def makeRequest(repo,collaborator, token):
     request_url = f"{api_base_url}/{repo}/collaborators/{collaborator}"
