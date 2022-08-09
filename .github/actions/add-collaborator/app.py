@@ -6,7 +6,7 @@ import traceback
 import json
 import argparse
 
-api_base_url = " https://api.github.com/repos"
+api_base_url = "https://api.github.com/repos"
 
 headers = {
     'Accepts': 'application/vnd.github+json'
