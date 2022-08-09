@@ -36,6 +36,7 @@ def start():
     makeRequest(args.repo,args.collaborator,args.token)
 
 def makeRequest(repo,collaborator, token):
+    print(f"##{repo}##")
     request_url = f"{api_base_url}/{repo}/collaborators/{collaborator}"
     try:
         response = requests.put(
