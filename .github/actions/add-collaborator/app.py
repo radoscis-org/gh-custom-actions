@@ -38,6 +38,7 @@ def parseArguments():
 def start():
     args = parseArguments()
     makeRequest(args.repo,args.collaborator,args.token)
+    printEnvsAndContext()
 
 def printEnvsAndContext():
     print('::group::GITHUB ENV VARIABLES')
