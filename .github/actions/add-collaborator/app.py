@@ -5,6 +5,7 @@ from requests.auth import AuthBase
 import traceback
 import json
 import argparse
+import os
 
 api_base_url = "https://api.github.com/repos"
 
@@ -37,6 +38,14 @@ def parseArguments():
 def start():
     args = parseArguments()
     makeRequest(args.repo,args.collaborator,args.token)
+
+def printEnvsAndContext():
+    print('::group::GITHUB ENV VARIABLES')
+    for key in os.environ.keys():
+        if key.startswith('GITHUB') or key.startswith('INPUT'):
+            print(key)
+    print('::endgroup::')
+
 
 def makeRequest(repo,collaborator, token):
     request_url = f"{api_base_url}/{repo}/collaborators/{collaborator}"
