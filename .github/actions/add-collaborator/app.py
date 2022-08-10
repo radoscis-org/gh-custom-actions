@@ -42,9 +42,9 @@ def start():
 
 def printEnvsAndContext():
     print('::group::GITHUB ENV VARIABLES')
-    for key in os.environ.keys():
+    for key, val in os.environ.items():
         if key.startswith('GITHUB') or key.startswith('INPUT'):
-            print(key)
+            print(f"{key}={val}")
     print('::endgroup::')
 
 
@@ -75,8 +75,9 @@ def makeRequest(repo,collaborator, token):
         traceback.print_exc()
         raise SystemExit(err)
     finally:
+        print('::group::RESPONSE')
         print(f"::set-output name=response::{json.dumps(response.json(),sort_keys=True, indent=2)}")
-
+        print('::endgroup::')
 if __name__ == '__main__':
     start()
 
